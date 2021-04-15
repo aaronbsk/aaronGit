@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "el-cuchillo": {
+      "hosting": {
+        "tfg": [
+          "el-cuchillo"
+        ]
+      }
+    }
+  }
+}

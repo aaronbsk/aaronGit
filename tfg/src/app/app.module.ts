@@ -15,11 +15,13 @@ import { AngularFirestore } from '@angular/fire/firestore';
 // Modulos (Componentes)
 import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { AbuelaComponent } from './abuela/abuela.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AbuelaComponent
   ],
   imports: [
     BrowserModule,

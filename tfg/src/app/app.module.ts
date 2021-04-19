@@ -15,13 +15,23 @@ import { AngularFirestore } from '@angular/fire/firestore';
 // Modulos (Componentes)
 import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { AbuelaComponent } from './abuela/abuela.component';
+import { HomeComponent } from './home/home.component';
+import { HeaderComponent } from './header/header.component';
+import { HeaderLoginComponent } from './header-login/header-login.component';
+import { HomeLoginComponent } from './home-login/home-login.component';
+import { FormClienteComponent } from './form-cliente/form-cliente.component';
+import { FormRestauranteComponent } from './form-restaurante/form-restaurante.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AbuelaComponent
+    HomeComponent,
+    HeaderComponent,
+    HeaderLoginComponent,
+    HomeLoginComponent,
+    FormClienteComponent,
+    FormRestauranteComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,28 @@
+<div class="container-fluid mt-5">
+    <h3 class="text-center">Bienvenido/a,</h3>
+    <h5 class="text-center">introduzca sus datos</h5><br><br>
+    <div class="container">
+        <form action="" [formGroup]="formularioLogin">
+            <div class="form-group text-center">
+                <label class="control-label" for="">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Introduzca su email"><br>
+                <div *ngIf="formularioLogin.controls['email'].invalid && formularioLogin.controls['email'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioLogin.controls['email'].errors.required">Campo obligatorio</span>
+                    <span *ngIf="formularioLogin.controls['email'].errors.email">Correo no válido</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <label class="control-label" for="">Contraseña</label>
+                <input type="password" (keyup.enter)="login()" class="form-control" formControlName="pass" placeholder="Introduzca su contraseña"><br>
+                <div *ngIf="formularioLogin.controls['pass'].invalid && formularioLogin.controls['pass'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioLogin.controls['pass'].errors.required">Campo obligatorio</span>
+                </div>
+            </div>
+            <div class="text-center">
+                <button [disabled]="!formularioLogin.valid" type="submit" class="btn btn-success" (click)="login()">Acceder</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type='pacman'><p style="color: white" >Entrando al sistema...</p></ngx-spinner>

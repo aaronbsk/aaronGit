@@ -17,10 +17,10 @@ import { AppComponent } from './app.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
-import { HeaderLoginComponent } from './header-login/header-login.component';
-import { HomeLoginComponent } from './home-login/home-login.component';
-import { FormClienteComponent } from './form-cliente/form-cliente.component';
-import { FormRestauranteComponent } from './form-restaurante/form-restaurante.component';
+import { InicioComponent } from './inicio/inicio.component';
+import { FormRegistroComponent } from './form-registro/form-registro.component';
+import { FormLoginComponent } from './form-login/form-login.component';
+import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
 
 
 @NgModule({
@@ -28,10 +28,10 @@ import { FormRestauranteComponent } from './form-restaurante/form-restaurante.co
     AppComponent,
     HomeComponent,
     HeaderComponent,
-    HeaderLoginComponent,
-    HomeLoginComponent,
-    FormClienteComponent,
-    FormRestauranteComponent
+    InicioComponent,
+    FormRegistroComponent,
+    FormLoginComponent,
+    PaginaPrincipalComponent
   ],
   imports: [
     BrowserModule,

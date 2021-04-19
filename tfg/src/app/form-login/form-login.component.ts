@@ -1,9 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
-import { HeaderComponent } from '../header/header.component';
 import { MensajesService } from '../services/mensajes.service';
 
 @Component({
@@ -15,7 +14,6 @@ export class FormLoginComponent implements OnInit {
     formularioLogin: FormGroup;
     datosCorrectos: boolean = true;
     textoError: string = "";
-    // @ViewChild(HeaderComponent) refHeader: boolean = false;
 
     constructor(
         private fb: FormBuilder,

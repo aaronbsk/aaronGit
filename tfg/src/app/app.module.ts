@@ -42,7 +42,6 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
     FormsModule,
     BrowserAnimationsModule,
     NgxSpinnerModule
-    // SWEET ALERT INSTALADO PERO SOLO HAY QUE IMPORTARLO EN LA CLASE DONDE LO VAYA A USAR
   ],
   providers: [
     AngularFireAuth,

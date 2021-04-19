@@ -5,3 +5,13 @@
     border-radius: 20px;
     padding: 20px;
 }
+
+input {
+    background-color: #333333;
+    color: white;
+}
+
+input:focus {
+    background-color: #333333;
+    color: white;
+}

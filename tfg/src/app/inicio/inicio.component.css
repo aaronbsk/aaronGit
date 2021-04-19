@@ -3,3 +3,8 @@ body {
     display: flex;
     flex-direction: column;
 }
+
+img {
+    width: 600px;
+    height: 600px;
+}

@@ -1,27 +1,23 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
-        <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-                <a class="nav-link">Información Usuario</a>
+        <ul class="navbar-nav mr-auto" *ngIf="showHeader">
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/infoUsuario" routerLinkActive="active-link">Información del usuario</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link">Reservar Mesa</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link">Restaurantes</a>
+                <a class="nav-link" routerLink="/restaurantes" routerLinkActive="active-link">
+                    Restaurantes&nbsp;<img id="imgCubiertos" src="../../assets/iconoCubiertos.png" alt="">
+                </a>
             </li>
         </ul>
     </div>
-    <div class="mx-auto order-0">
-        <a class="navbar-brand mx-auto">El Cuchillo</a>
+    <div class="mx-auto order-0" *ngIf="showHeaderTitulo">
+        <a class="navbar-brand mx-auto" routerLink="/paginaPrincipal">El Cuchillo&nbsp;<img id="imgLogo" src="../../assets/imgLogo.png" alt=""></a>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
-        <ul class="navbar-nav ml-auto" hidden="true">
-            <span class="navbar-text">
-                Usuario
-            </span>
+        <ul class="navbar-nav ml-auto" *ngIf="showHeader">
             <li class="nav-item">
-                <a class="nav-link" routerLink="">Logout</a>
+                <button class="btn btn-danger" (click)="logout()">Logout&nbsp;<img id="imgExit" src="../../assets/iconoExit.png" alt=""></button>
             </li>
         </ul>
     </div>

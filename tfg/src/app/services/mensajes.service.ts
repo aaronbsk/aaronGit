@@ -15,4 +15,20 @@ export class MensajesService {
             icon: 'error'
         })
     }
+
+    mensajeRegistroError(mensaje: string){
+        Swal.fire({
+            title: 'Error!',
+            text: mensaje,
+            icon: 'error'
+        })
+    }
+
+    mensajeRegistroCorrecto(mensaje: string){
+        Swal.fire({
+            title: 'Enhorabuena!',
+            text: mensaje,
+            icon: 'success'
+        })
+    }
 }

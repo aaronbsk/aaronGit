@@ -1,1 +1,62 @@
-<p>form-registro works!</p>
+<div class="container-fluid mt-3">
+    <h3 class="text-center">Bienvenido/a,</h3>
+    <h5 class="text-center">introduzca sus datos para registrarse</h5>
+    <div class="container">
+        <form action="" [formGroup]="formularioRegistro">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group text-center">
+                        <label class="control-label" for="">Nombre</label>
+                        <input type="text" class="form-control" formControlName="nombre" placeholder="Introduzca su nombre"><br>
+                        <div *ngIf="formularioRegistro.controls['nombre'].invalid && formularioRegistro.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                            <span *ngIf="formularioRegistro.controls['nombre'].errors.required">Campo obligatorio</span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <label class="control-label" for="">Apellidos</label>
+                        <input type="text" class="form-control" formControlName="apellidos" placeholder="Introduzca sus apellidos"><br>
+                        <div *ngIf="formularioRegistro.controls['apellidos'].invalid && formularioRegistro.controls['apellidos'].dirty" class="alert alert-danger" role="alert">
+                            <span *ngIf="formularioRegistro.controls['apellidos'].errors.required">Campo obligatorio</span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <label class="control-label" for="">Contraseña</label>
+                        <input type="password" class="form-control" formControlName="pass" placeholder="Introduzca su contraseña"><br>
+                        <div *ngIf="formularioRegistro.controls['pass'].invalid && formularioRegistro.controls['pass'].dirty" class="alert alert-danger" role="alert">
+                            <span *ngIf="formularioRegistro.controls['pass'].errors.required">Campo obligatorio</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 text-center">
+                    <div class="form-group text-center">
+                        <label class="control-label" for="">Email</label>
+                        <input type="email" class="form-control" formControlName="email" placeholder="Introduzca su email"><br>
+                        <div *ngIf="formularioRegistro.controls['email'].invalid && formularioRegistro.controls['email'].dirty" class="alert alert-danger" role="alert">
+                            <span *ngIf="formularioRegistro.controls['email'].errors.required">Campo obligatorio</span>
+                            <span *ngIf="formularioRegistro.controls['email'].errors.email">Correo no válido</span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <label class="control-label" for="">Teléfono</label>
+                        <input type="tel" class="form-control" formControlName="tlf" placeholder="Introduzca su teléfono"><br>
+                        <div *ngIf="formularioRegistro.controls['tlf'].invalid && formularioRegistro.controls['tlf'].dirty" class="alert alert-danger" role="alert">
+                            <span *ngIf="formularioRegistro.controls['tlf'].errors.required">Campo obligatorio</span>
+                        </div>
+                    </div>
+                    <div class="form-group text-center">
+                        <label class="control-label" for="">DNI</label>
+                        <input type="text" (keyup.enter)="register()" class="form-control" formControlName="dni" placeholder="Introduzca su DNI"><br>
+                        <div *ngIf="formularioRegistro.controls['dni'].invalid && formularioRegistro.controls['dni'].dirty" class="alert alert-danger" role="alert">
+                            <span *ngIf="formularioRegistro.controls['dni'].errors.required">Campo obligatorio</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+        <div class="text-center">
+            <button [disabled]="!formularioRegistro.valid" type="submit" class="btn btn-success" (click)="register()">Registrar</button>
+        </div>
+    </div>
+</div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type='pacman'><p style="color: white" >Accediendo al login...</p></ngx-spinner>

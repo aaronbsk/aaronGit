@@ -1,0 +1,14 @@
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+button {
+    width: 200px;
+    height: 100px;
+}
+
+img {
+    width: 50px;
+}

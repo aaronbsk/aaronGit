@@ -22,11 +22,11 @@ export class PaginaPrincipalComponent implements OnInit {
         localStorage.removeItem('usuario')
         this.afAuth.currentUser.then((idToken)=> {
             idToken;
-            if (idToken){
-                localStorage.setItem('usuario', idToken.uid);
+            localStorage.setItem('usuario', idToken.uid);
+            if (localStorage.getItem('usuario')){
                 this.db.collection('usuarios').valueChanges().subscribe((data: Array<Usuario>)=> {
                     this.nombreUsuario = data[0].nombre;
-                })
+                });
             }else {
                 this.router.navigateByUrl('/home');
             }
@@ -36,5 +36,7 @@ export class PaginaPrincipalComponent implements OnInit {
     irAReservarMesa(){
         this.router.navigateByUrl('/reservarMesa');
     }
+
+
 
 }

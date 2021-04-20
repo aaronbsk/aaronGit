@@ -36,7 +36,9 @@ export class FormLoginComponent implements OnInit {
             pass: ['', Validators.required]
         });
 
-        localStorage.removeItem('usuario');
+        if(localStorage.getItem('usuario')){
+            this.router.navigateByUrl('/paginaPrincipal');
+        }
     }
 
     login(){

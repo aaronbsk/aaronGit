@@ -24,6 +24,7 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { ReservarMesaComponent } from './reservar-mesa/reservar-mesa.component';
 import { InformacionUsuarioComponent } from './informacion-usuario/informacion-usuario.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
+import Popper from 'popper.js';
 
 
 

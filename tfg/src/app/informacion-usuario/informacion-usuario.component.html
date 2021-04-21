@@ -1,5 +1,20 @@
 <div class="container mt-3">
-    <button class="btn btn-warning" (click)="volverAtras()">	
+    <button class="btn btn-warning" (click)="volverAtras()">
         &#171;&nbsp;Volver al Home
-    </button>
+    </button><br><br>
+    <h4>Perfil</h4>
+    <div class="card" style="width: 18rem;"*ngFor="let usuario of usuarios">
+            <div class="card-body">
+                <h5 class="card-title">{{ usuario.nombre }} {{ usuario.apellidos }}</h5>
+                <h6 class="card-subtitle">{{ usuario.pass }}</h6><br>
+                <p><input [type]="this.inputType" [value]="usuario.pass">
+                    <a (click)="cambiarContrasena()" class="card-link">Cambiar</a>
+                    <br>
+                    <input type="checkbox" (click)="cambiarVisibilidad()">&nbsp;Ver contraseña
+                </p>
+                <p class="card-text">{{ usuario.email }}</p>
+                <p class="card-text"><b>TLF:</b> {{ usuario.tlf }}</p>
+                <p class="card-text"><b>DNI:</b> {{ usuario.dni }}</p>
+            </div>
+    </div>
 </div>

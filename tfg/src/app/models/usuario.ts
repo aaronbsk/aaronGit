@@ -3,7 +3,7 @@ export class Usuario{
     apellidos: string;
     pass: string;
     email: string;
-    tlf: number;
+    tlf: string;
     dni: string;
 
     constructor(){

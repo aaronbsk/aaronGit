@@ -1,10 +1,23 @@
-<div class="container mt-5 justify-content-center">
-    <button class="btn btn-warning" (click)="volverAtras()">
-        &#171;&nbsp;Volver al Home
-    </button><br><br>
-    <h4>Listado de Restaurantes</h4><br>
+<div class="container mt-5">
     <div class="row">
-        <div class="col-sm-4" *ngFor="let restaurante of restaurantes">
+        <div class="col-sm ml-4">
+            <button class="btn btn-warning" (click)="volverAtras()">
+                &#171;&nbsp;Volver
+            </button>
+        </div>
+        <div class="col-sm offset-sm-8">
+            <button class="btn btn-warning" (click)="irAHome()">
+                Ir a Home&nbsp;&#187;
+            </button><br><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm ml-4">
+            <h4>Listado de Restaurantes</h4><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm ml-4" *ngFor="let restaurante of restaurantes">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" [src]="restaurante.imgUrl">
                 <div class="card-body">

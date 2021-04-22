@@ -1,0 +1,21 @@
+.container-fluid {
+    max-width: 500px !important;
+    background: #333333;
+    color: white;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+input, select {
+    background-color: #333333;
+    color: white;
+}
+
+input:focus, select:focus {
+    background-color: #333333;
+    color: white;
+}
+
+#inputTime {
+    width: 250px;
+}

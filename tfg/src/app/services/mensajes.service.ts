@@ -42,7 +42,7 @@ export class MensajesService {
 
     mensajeCorreoRestablecerPassError(mensaje: string){
         Swal.fire({
-            title: 'Error',
+            title: 'Error!',
             text: 'ERROR: ' + mensaje + '. Ha ocurrido un error intentando reestablecer su contraseña, porfavor, vuelva a intentarlo.',
             icon: 'error'
         })
@@ -50,8 +50,64 @@ export class MensajesService {
 
     mensajeLogoutSinUsuario(){
         Swal.fire({
-            title: 'Error',
+            title: 'Error!',
             text: 'No puedes cerrar sesión sin haberla iniciado antes',
+            icon: 'error'
+        })
+    }
+
+    mensajeReservarMesaLogoutError(){
+        Swal.fire({
+            title: 'Error!',
+            text: 'No puedes reservar mesa sin haber iniciado sesión previamente',
+            icon: 'error'
+        })
+    }
+
+    mensajeAccederHistorialError(){
+        Swal.fire({
+            title: 'Error!',
+            text: 'No puedes acceder a tu historial de reservas sin haber iniciado sesión previamente',
+            icon: 'error'
+        })
+    }
+
+    mensajeAccederPerfilError(){
+        Swal.fire({
+            title: 'Error!',
+            text: 'No puedes acceder a tu perfil sin haber iniciado sesión previamente',
+            icon: 'error'
+        })
+    }
+
+    mensajeAccederReservasError(){
+        Swal.fire({
+            title: 'Error!',
+            text: 'No puedes reservar mesa sin haber iniciado sesión previamente',
+            icon: 'error'
+        })
+    }
+
+    mensajeReservaCorrecta(mensaje: string){
+        Swal.fire({
+            title: 'Enhorabuena!',
+            text: mensaje,
+            icon: 'success'
+        })
+    }
+
+    mensajeReservaError(mensaje: string){
+        Swal.fire({
+            title: 'Error!',
+            text: mensaje,
+            icon: 'error'
+        })
+    }
+
+    mensajeFormReservaError(){
+        Swal.fire({
+            title: 'Error!',
+            text: 'Porfavor, revisa que los datos esten correctos',
             icon: 'error'
         })
     }

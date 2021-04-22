@@ -32,6 +32,9 @@ export class InformacionUsuarioComponent implements OnInit {
                         this.usuarios.push(usuario);
                     });
                 });
+            }else {
+                this.msj.mensajeAccederPerfilError();
+                this.router.navigateByUrl('');
             }
         });
     }

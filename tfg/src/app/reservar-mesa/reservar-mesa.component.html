@@ -3,3 +3,44 @@
         &#171;&nbsp;Volver al Home
     </button>
 </div>
+<div class="container-fluid mt-5">
+    <h3 class="text-center">Porfavor,</h3>
+    <h5 class="text-center">introduzca los datos de la reserva</h5><br><br>
+    <div class="container">
+        <form action="" [formGroup]="formularioReservar" *ngIf="formularioReservar">
+            <div class="form-group text-center">
+                <label class="control-label" for="">A nombre de quien quiere reservar (su nombre)</label>
+                <input type="text" class="form-control" formControlName="nombre" placeholder="Introduzca su nombre"><br>
+                <div *ngIf="formularioReservar.controls['nombre'].invalid && formularioReservar.controls['nombre'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioReservar.controls['nombre'].errors.required">Campo obligatorio</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <label class="control-label" for="">Email</label>
+                <input type="email" class="form-control" formControlName="email" placeholder="Introduzca su correo"><br>
+                <div *ngIf="formularioReservar.controls['email'].invalid && formularioReservar.controls['email'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioReservar.controls['email'].errors.required">Campo obligatorio</span>
+                    <span *ngIf="formularioReservar.controls['email'].errors.email">Correo no válido</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <label class="control-label" for="">Día y Hora de la reserva</label>
+                <input type="datetime-local" id="inputTime" class="form-control m-auto" formControlName="fecha"><br>
+                <div *ngIf="formularioReservar.controls['fecha'].invalid && formularioReservar.controls['fecha'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioReservar.controls['fecha'].errors.required">Campo obligatorio</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <select class="form-control" formControlName="nombreRestaurante">
+                    <option value="" selected disabled>Elija el restaurante</option>
+                    <option *ngFor="let restaurante of restaurantes" [ngValue]="restaurante.nombre">{{ restaurante.nombre }}</option>
+                </select>
+            </div>
+            <div class="text-center">
+                <button [disabled]="!formularioReservar.valid" type="submit" class="btn btn-success" (click)="reservar()">Reservar</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type='pacman'><p style="color: white" >Entrando al sistema...</p></ngx-spinner>

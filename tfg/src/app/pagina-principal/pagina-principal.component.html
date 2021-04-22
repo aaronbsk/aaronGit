@@ -1,8 +1,9 @@
 <body class="bg-dark text-white">
     <div class="container mt-5 text-center">
         <h2>Bienvenido/a {{ this.nombre }}!</h2><br>
-        <h4>Porfavor, díganos</h4><br><br>
-        <h1>¿Dónde le apetece comer hoy?</h1><br><br><br>
+        <h4 [hidden]="!this.esVisible">Porfavor, díganos</h4><br><br>
+        <h3 [hidden]="!this.esVisible">¿Dónde le apetece comer hoy?</h3>
+        <h3 [hidden]="this.esVisible"><a routerLink="/formLogin">Iniciar Sesión</a> o <a routerLink="/formRegistro">Registrarse</a> para reservar mesa</h3><br><br><br>
         <button class="btn btn-success" (click)="irAReservarMesa()">RESERVAR MESA<br><img src="../../assets/iconoMesa.png" alt=""></button>
     </div>
 </body>

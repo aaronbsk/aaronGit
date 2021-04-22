@@ -40,6 +40,10 @@ export class FormRegistroComponent implements OnInit {
             tlf: ['', Validators.required],
             dni: ['', Validators.required]
         });
+
+        if(localStorage.getItem('usuario')){
+            this.router.navigateByUrl('/paginaPrincipal');
+        }
     }
 
     register(){
@@ -65,14 +69,17 @@ export class FormRegistroComponent implements OnInit {
                 }).catch((error)=> {
                     this.datosCorrectos = false;
                     this.textoMensajes2 = error.message;
+                    this.formularioRegistro.reset();
                     this.spinner.hide();
                     this.msj.mensajeRegistroError(this.textoMensajes2);
-                })
+                });
+                this.formularioRegistro.reset();
             }).catch((error)=> {
                 this.datosCorrectos = false;
                 this.textoMensajes = error.message;
                 this.spinner.hide();
                 this.msj.mensajeRegistroError(this.textoMensajes + " " + this.textoMensajes2);
+                this.formularioRegistro.reset();
             })
         }else{
             this.datosCorrectos = false;

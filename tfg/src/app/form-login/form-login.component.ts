@@ -49,11 +49,13 @@ export class FormLoginComponent implements OnInit {
             .then(()=> {
                 this.router.navigateByUrl('/paginaPrincipal');
                 this.spinner.hide();
+                this.formularioLogin.reset();
             }).catch((error)=> {
                 this.datosCorrectos = false;
                 this.textoMensajes = error.message;
                 this.spinner.hide();
                 this.msj.mensajeLoginError(this.textoMensajes);
+                this.formularioLogin.reset();
             });
         }else{
             this.datosCorrectos = false;

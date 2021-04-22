@@ -1,7 +1,8 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Restaurante } from '../models/restaurante';
+import { Location } from '@angular/common';
 
 @Component({
     selector: 'app-restaurantes',
@@ -13,6 +14,7 @@ export class RestaurantesComponent implements OnInit {
 
     constructor(
         private router: Router,
+        private _location: Location,
         private db: AngularFirestore
     ) { }
 
@@ -28,6 +30,10 @@ export class RestaurantesComponent implements OnInit {
     }
 
     volverAtras(){
+        this._location.back();
+    }
+
+    irAHome(){
         this.router.navigateByUrl('/paginaPrincipal');
     }
 }

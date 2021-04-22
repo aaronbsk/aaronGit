@@ -6,16 +6,16 @@
                     Restaurantes&nbsp;<img id="imgCubiertos" src="../../assets/iconoCubiertos.png" alt="">
                 </a>
             </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                Usuario: 
+            <li class="nav-item dropdown" dropdown>
+                <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" dropdownToggle>
+                  Información usuario
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" routerLink="/infoUsuario">Perfil</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" routerLink="/historialReservas">Historial reservas</a>
+                <div class="dropdown-menu" *dropdownMenu>
+                  <a class="dropdown-item" (click)="accederPerfil()">Perfil</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" (click)="accederHistorial()">Historial Reservas</a>
                 </div>
-            </li>&nbsp;&nbsp;
+            </li>
         </ul>
     </div>
     <div class="mx-auto order-0">

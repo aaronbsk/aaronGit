@@ -8,6 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 
 // Providers
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
@@ -15,7 +16,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 
 // Modulos (Componentes)
 import { AppComponent } from './app.component';
-import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { FormRegistroComponent } from './form-registro/form-registro.component';
@@ -24,14 +24,12 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { ReservarMesaComponent } from './reservar-mesa/reservar-mesa.component';
 import { InformacionUsuarioComponent } from './informacion-usuario/informacion-usuario.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
-import Popper from 'popper.js';
 
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
     HeaderComponent,
     InicioComponent,
     FormRegistroComponent,
@@ -49,7 +47,9 @@ import Popper from 'popper.js';
     ReactiveFormsModule,
     FormsModule,
     BrowserAnimationsModule,
-    NgxSpinnerModule
+    NgxSpinnerModule,
+    BrowserAnimationsModule,
+    BsDropdownModule.forRoot()
   ],
   providers: [
     AngularFireAuth,

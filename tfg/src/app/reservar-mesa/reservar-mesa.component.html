@@ -24,6 +24,20 @@
                 </div>
             </div>
             <div class="form-group text-center">
+                <label class="control-label" for="">Teléfono</label>
+                <input type="tlf" class="form-control" formControlName="tlf" placeholder="Introduzca su teléfono/móvil"><br>
+                <div *ngIf="formularioReservar.controls['tlf'].invalid && formularioReservar.controls['tlf'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioReservar.controls['tlf'].errors.required">Campo obligatorio</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <label class="control-label" for="">Número de personas</label>
+                <input type="number" class="form-control" formControlName="numPersonas" placeholder="Introduzca el número de personas para la reserva"><br>
+                <div *ngIf="formularioReservar.controls['numPersonas'].invalid && formularioReservar.controls['numPersonas'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioReservar.controls['numPersonas'].errors.required">Campo obligatorio</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
                 <label class="control-label" for="">Día y Hora de la reserva</label>
                 <input type="datetime-local" id="inputTime" class="form-control m-auto" formControlName="fecha"><br>
                 <div *ngIf="formularioReservar.controls['fecha'].invalid && formularioReservar.controls['fecha'].dirty" class="alert alert-danger" role="alert">

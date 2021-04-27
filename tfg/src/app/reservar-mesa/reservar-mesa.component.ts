@@ -1,10 +1,10 @@
-import { formatDate } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
+import { emailReserva } from '../models/emailReserva';
 import { Reserva } from '../models/reserva';
 import { Restaurante } from '../models/restaurante';
 import { MensajesService } from '../services/mensajes.service';
@@ -19,6 +19,8 @@ export class ReservarMesaComponent implements OnInit {
     restaurantes: Restaurante[] = new Array<Restaurante>();
     mensaje: string = '';
     nombreRestaurante: string = '';
+    emailReserva: emailReserva;
+    emailRestaurante: string = '';
 
     constructor(
         private router: Router,
@@ -47,6 +49,8 @@ export class ReservarMesaComponent implements OnInit {
                         Validators.required,
                         Validators.email
                     ])],
+                    tlf: ['', Validators.required],
+                    numPersonas: ['', Validators.required],
                     fecha: ['', Validators.required],
                     nombreRestaurante: ['', Validators.required]
                 });
@@ -69,7 +73,9 @@ export class ReservarMesaComponent implements OnInit {
                 nombre: this.formularioReservar.value.nombre,
                 email: this.formularioReservar.value.email,
                 fecha: new Date(this.formularioReservar.value.fecha),
-                nombreRestaurante: this.formularioReservar.value.nombreRestaurante
+                numPersonas: this.formularioReservar.value.numPersonas,
+                nombreRestaurante: this.formularioReservar.value.nombreRestaurante,
+                tlf: this.formularioReservar.value.tlf
             };
 
             this.restaurantes.length = 0;
@@ -88,10 +94,14 @@ export class ReservarMesaComponent implements OnInit {
                 });
                 this.restaurantes.forEach((restaurante)=> {
                     this.nombreRestaurante = restaurante.nombre;
+                    this.emailRestaurante = restaurante.email;
                 });
-                // this.afAuth.isSignInWithEmailLink(this.nombreRestaurante).then(()=> {
-
-                // })
+                // this.emailReserva = {
+                //     nombreCliente: reservaAgregar.nombre,
+                //     correoRestaurante: this.emailRestaurante,
+                //     // telefonoCliente: reservaAgregar.,
+                //     mensaje: `El cliente ${} ha reservado en su establecimiento para ${} personas a las ${} horas`
+                // }
             }).catch((error)=> {
                 this.formularioReservar.reset();
                 this.mensaje = error.message;

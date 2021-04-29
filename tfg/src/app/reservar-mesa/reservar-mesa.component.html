@@ -17,10 +17,24 @@
             </div>
             <div class="form-group text-center">
                 <label class="control-label" for="">Email</label>
-                <input type="email" class="form-control" formControlName="email" placeholder="Introduzca su correo"><br>
+                <input type="email" class="form-control" formControlName="email" placeholder="ejemplo@ejemplo.com"><br>
                 <div *ngIf="formularioReservar.controls['email'].invalid && formularioReservar.controls['email'].dirty" class="alert alert-danger" role="alert">
                     <span *ngIf="formularioReservar.controls['email'].errors.required">Campo obligatorio</span>
                     <span *ngIf="formularioReservar.controls['email'].errors.email">Correo no válido</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <label class="control-label" for="">Teléfono / Móvil</label>
+                <input type="tel" maxlength="9" minlength="9" class="form-control" formControlName="tlf" placeholder="999888777 / 666555444"><br>
+                <div *ngIf="formularioReservar.controls['tlf'].invalid && formularioReservar.controls['tlf'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioReservar.controls['tlf'].errors.required">Campo obligatorio</span>
+                </div>
+            </div>
+            <div class="form-group text-center">
+                <label class="control-label" for="">Número de personas</label>
+                <input type="number" class="form-control" formControlName="numPersonas" placeholder="Introduzca el número de personas para la reserva"><br>
+                <div *ngIf="formularioReservar.controls['numPersonas'].invalid && formularioReservar.controls['numPersonas'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formularioReservar.controls['numPersonas'].errors.required">Campo obligatorio</span>
                 </div>
             </div>
             <div class="form-group text-center">

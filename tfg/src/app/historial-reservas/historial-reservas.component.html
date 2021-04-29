@@ -1,0 +1,36 @@
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-sm ml-4">
+            <button class="btn btn-warning" (click)="volverAtras()">
+                &#171;&nbsp;Volver
+            </button>
+        </div>
+    </div><br>
+    <div class="row">
+        <div class="col-sm ml-4">
+            <h4>Historial de mis reservas</h4><br>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm ml-4">
+            <table class="table table-striped table-dark">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre Reserva</th>
+                        <th scope="col">Nombre Restaurante</th>
+                        <th scope="col">Número Personas</th>
+                        <th scope="col">Fecha</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let reserva of reservas">
+                        <th scope="row">{{ reserva.nombre }}</th>
+                        <td>{{ reserva.nombreRestaurante }}</td>
+                        <td>{{ reserva.numPersonas }}</td>
+                        <td>{{ reserva.fecha }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

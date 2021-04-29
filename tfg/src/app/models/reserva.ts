@@ -1,7 +1,7 @@
 export class Reserva {
     nombre: string;
     email: string;
-    tlf: number;
+    tlf: string;
     numPersonas: number;
     fecha: Date;
     nombreRestaurante: string;

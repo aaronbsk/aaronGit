@@ -88,14 +88,6 @@ export class MensajesService {
         })
     }
 
-    mensajeReservaCorrecta(mensaje: string){
-        Swal.fire({
-            title: 'Enhorabuena!',
-            text: mensaje,
-            icon: 'success'
-        })
-    }
-
     mensajeReservaError(mensaje: string){
         Swal.fire({
             title: 'Error!',
@@ -108,6 +100,22 @@ export class MensajesService {
         Swal.fire({
             title: 'Error!',
             text: 'Porfavor, revisa que los datos esten correctos',
+            icon: 'error'
+        })
+    }
+
+    mensajeReservaCorrecto(mensaje: string){
+        Swal.fire({
+            title: 'Reserva realizada',
+            text: mensaje,
+            icon: 'success'
+        })
+    }
+
+    mensajeEmailReservaError(mensaje: string){
+        Swal.fire({
+            title: 'Error',
+            text: mensaje,
             icon: 'error'
         })
     }

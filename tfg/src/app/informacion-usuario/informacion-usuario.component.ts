@@ -43,6 +43,10 @@ export class InformacionUsuarioComponent implements OnInit {
         this.router.navigateByUrl('/paginaPrincipal');
     }
 
+    irAHistorial(){
+        this.router.navigateByUrl('/historialReservas');
+    }
+
     cambiarVisibilidad(){
         if(this.inputType === 'password'){
             this.inputType = 'text';

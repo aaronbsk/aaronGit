@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { FormRegistroComponent } from './form-registro/form-registro.component';
+import { HistorialReservasComponent } from './historial-reservas/historial-reservas.component';
 import { InformacionUsuarioComponent } from './informacion-usuario/informacion-usuario.component';
 import { InicioComponent } from './inicio/inicio.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
@@ -29,6 +30,9 @@ const routes: Routes = [
     },
     {
         path: 'reservarMesa', component: ReservarMesaComponent
+    },
+    {
+        path: 'historialReservas', component: HistorialReservasComponent
     }
 ];
 

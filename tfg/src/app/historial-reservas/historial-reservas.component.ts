@@ -30,10 +30,6 @@ export class HistorialReservasComponent implements OnInit {
                         let reserva: any = item.data()
 
                         this.reservas.push(reserva);
-
-                        // this.reservas.forEach((item)=> {
-                        //     item.fecha = new Date(item.fecha);
-                        // })
                     });
                 });
             }else {

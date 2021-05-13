@@ -1,13 +1,19 @@
+// Imports
 import { Injectable } from '@angular/core';
 import Swal from 'sweetalert2';
 
+// Inyección del tipo Injectable para la clase MensajesService
 @Injectable({
     providedIn: 'root'
 })
+
+// Export de la clase MensajesService
 export class MensajesService {
 
+    // Constructor de la clase MensajesService
     constructor() { }
 
+    // Método para mostrar mensaje error al hacer Login
     mensajeLoginError(mensaje: string){
         Swal.fire({
             title: 'Error!',
@@ -16,6 +22,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje error al hacer Registro
     mensajeRegistroError(mensaje: string){
         Swal.fire({
             title: 'Error!',
@@ -24,6 +31,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje correcto al hacer Registro
     mensajeRegistroCorrecto(mensaje: string){
         Swal.fire({
             title: 'Enhorabuena!',
@@ -32,6 +40,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje correcto al restablecer la contraseña
     mensajeCorreoRestablecerPassCorrecto(){
         Swal.fire({
             title: 'Restablece tu contraseña',
@@ -40,6 +49,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje error al restablecer la contraseña
     mensajeCorreoRestablecerPassError(mensaje: string){
         Swal.fire({
             title: 'Error!',
@@ -48,6 +58,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje error al hacer Logout
     mensajeLogoutSinUsuario(){
         Swal.fire({
             title: 'Error!',
@@ -56,6 +67,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje error al acceder a ReservaraMesa
     mensajeReservarMesaLogoutError(){
         Swal.fire({
             title: 'Error!',
@@ -64,6 +76,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje error al acceder a HistorialReservas
     mensajeAccederHistorialError(){
         Swal.fire({
             title: 'Error!',
@@ -72,6 +85,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje error al acceder a Perfil
     mensajeAccederPerfilError(){
         Swal.fire({
             title: 'Error!',
@@ -80,14 +94,7 @@ export class MensajesService {
         })
     }
 
-    mensajeAccederReservasError(){
-        Swal.fire({
-            title: 'Error!',
-            text: 'No puedes reservar mesa sin haber iniciado sesión previamente',
-            icon: 'error'
-        })
-    }
-
+    // Método para mostrar mensaje error al conectar con la base de datos a la hora de realizar la reserva
     mensajeReservaError(mensaje: string){
         Swal.fire({
             title: 'Error!',
@@ -96,6 +103,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje error al hacer la reserva con el formulario no válido
     mensajeFormReservaError(){
         Swal.fire({
             title: 'Error!',
@@ -104,6 +112,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje correcto al realizar la reserva
     mensajeReservaCorrecto(mensaje: string){
         Swal.fire({
             title: 'Reserva realizada',
@@ -112,6 +121,7 @@ export class MensajesService {
         })
     }
 
+    // Método para mostrar mensaje error al conectar con la base de datos a la hora de guardar el mail con la información de la reserva
     mensajeEmailReservaError(mensaje: string){
         Swal.fire({
             title: 'Error',

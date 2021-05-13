@@ -1,3 +1,4 @@
+// Imports
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -9,14 +10,16 @@ import { Reserva } from '../models/reserva';
 import { Restaurante } from '../models/restaurante';
 import { MensajesService } from '../services/mensajes.service';
 
+// Inyección del tipo Component para la clase ReservarMesaComponent
 @Component({
     selector: 'app-reservar-mesa',
     templateUrl: './reservar-mesa.component.html',
     styleUrls: ['./reservar-mesa.component.css']
 })
-export class ReservarMesaComponent implements OnInit {
 
-    // Variables
+// Export de la clase ReservarMesaComponent
+export class ReservarMesaComponent implements OnInit {
+    // Declaración de variables
     formularioReservar: FormGroup;
     restaurantes: Restaurante[] = new Array<Restaurante>();
     mensaje: string = '';
@@ -24,7 +27,7 @@ export class ReservarMesaComponent implements OnInit {
     emailRestaurante: string = '';
     emailReserva: emailReserva = new emailReserva();
 
-    // Constructor del componente
+    // Constructor de la clase ReservarMesaComponent
     constructor(
         private router: Router,
         private afAuth: AngularFireAuth,
@@ -34,11 +37,13 @@ export class ReservarMesaComponent implements OnInit {
         private spinner: NgxSpinnerService
     ) { }
 
-    // Función inicializadora, se ejecuta al entrar al componente
+    // Método inicializador de la clase ReservarMesaComponent
     ngOnInit(): void {
+        // Comprobación si existe usuario logueado
         this.afAuth.currentUser.then((user)=> {
            if (user != null){
                 this.restaurantes.length = 0;
+                // Recibo los restaurantes de la Base de Datos
                 this.db.collection('restaurantes').get().subscribe((resultado)=> {
                     resultado.docs.forEach((item)=> {
                         let restaurante: any = item.data();
@@ -47,6 +52,7 @@ export class ReservarMesaComponent implements OnInit {
                     })
                 });
 
+                // Validacion del formulario de reservar mesa
                 this.formularioReservar = this.fb.group({
                     nombre: ['', Validators.required],
                     email: ['', Validators.compose([
@@ -58,18 +64,20 @@ export class ReservarMesaComponent implements OnInit {
                     fecha: ['', Validators.required],
                     nombreRestaurante: ['', Validators.required]
                 });
+            // En caso de no haber usuario logueado
             }else {
-                this.msj.mensajeAccederReservasError();
+                this.msj.mensajeReservarMesaLogoutError();
                 this.router.navigateByUrl('/paginaPrincipal');
             }
         });
     }
 
-    // Método para volver al Home
+    // Método para volver a la localización previa
     volverAtras(){
         this.router.navigateByUrl('/paginaPrincipal');
     }
 
+    // Método para realizar la reserva del usuario
     reservar(){
         if (this.formularioReservar.valid){
             this.spinner.show();

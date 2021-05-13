@@ -14,7 +14,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { AngularFireAuth, AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 
-// Modulos (Componentes)
+// Módulos (Componentes)
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { InicioComponent } from './inicio/inicio.component';
@@ -27,7 +27,7 @@ import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { HistorialReservasComponent } from './historial-reservas/historial-reservas.component';
 
 
-
+// Declaración de los modulos
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +41,7 @@ import { HistorialReservasComponent } from './historial-reservas/historial-reser
     RestaurantesComponent,
     HistorialReservasComponent
   ],
+  // Declaración de los imports
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -53,11 +54,15 @@ import { HistorialReservasComponent } from './historial-reservas/historial-reser
     BrowserAnimationsModule,
     BsDropdownModule.forRoot()
   ],
+  // Declaración de los providers
   providers: [
     AngularFireAuth,
     AngularFireAuthModule,
     AngularFirestore
   ],
+  // Inyección de bootstrap en toda la aplicación
   bootstrap: [AppComponent]
 })
+
+// Export de la clase AppModule
 export class AppModule { }

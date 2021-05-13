@@ -1,4 +1,6 @@
+// Export de la clase Restaurante
 export class Restaurante {
+    // Declaración de variables
     nombre: string;
     descripcion: string;
     email: string;
@@ -7,6 +9,7 @@ export class Restaurante {
     localizacion: string;
     imgUrl: string;
 
+    // Constructor de la clase Restaurante
     constructor(){
         this.nombre = this.nombre;
         this.descripcion = this.descripcion;

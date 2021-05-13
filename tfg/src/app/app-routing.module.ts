@@ -1,3 +1,4 @@
+// Imports
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { FormLoginComponent } from './form-login/form-login.component';
@@ -9,9 +10,13 @@ import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.co
 import { ReservarMesaComponent } from './reservar-mesa/reservar-mesa.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 
+// Constante con todas las rutas de mi aplicacion
 const routes: Routes = [
     {
         path: '', component: InicioComponent
+    },
+    {
+        path: '**', component: PaginaPrincipalComponent
     },
     {
         path: 'formLogin', component: FormLoginComponent
@@ -36,9 +41,11 @@ const routes: Routes = [
     }
 ];
 
+// Export del objeto RouterModule para poder utilizarlo en los componentes y editar rutas desde dentro
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
 
+// Export de la clase
 export class AppRoutingModule { }

@@ -59,7 +59,11 @@ export class ReservarMesaComponent implements OnInit {
                         Validators.required,
                         Validators.email
                     ])],
-                    tlf: ['', Validators.required],
+                    tlf: ['', Validators.compose([
+                        Validators.maxLength(9),
+                        Validators.minLength(9),
+                        Validators.required
+                    ])],
                     numPersonas: ['', Validators.required],
                     fecha: ['', Validators.required],
                     nombreRestaurante: ['', Validators.required]
@@ -86,7 +90,7 @@ export class ReservarMesaComponent implements OnInit {
             let reservaAgregar: Reserva = {
                 nombre: this.formularioReservar.value.nombre,
                 email: this.formularioReservar.value.email,
-                fecha: new Date(this.formularioReservar.value.fecha),
+                fecha: this.formularioReservar.value.fecha,
                 numPersonas: this.formularioReservar.value.numPersonas,
                 nombreRestaurante: this.formularioReservar.value.nombreRestaurante,
                 tlf: this.formularioReservar.value.tlf
@@ -111,7 +115,7 @@ export class ReservarMesaComponent implements OnInit {
                     this.emailReserva = {
                         nombreCliente: reservaAgregar.nombre,
                         correoRestaurante: this.emailRestaurante,
-                        mensaje: `El cliente ${reservaAgregar.nombre} ha reservado en su establecimiento para ${reservaAgregar.numPersonas} personas a las ${reservaAgregar.fecha.getHours()}:${reservaAgregar.fecha.getMinutes()} horas.
+                        mensaje: `El cliente ${reservaAgregar.nombre} ha reservado en su establecimiento para ${reservaAgregar.numPersonas} personas a las ${new Date(reservaAgregar.fecha).getHours()}:${new Date(reservaAgregar.fecha).getMinutes()} horas.
                         Si necesita ponerse en contacto con el cliente para alguna indicación, su teléfono es ${reservaAgregar.tlf} y su correo ${reservaAgregar.email}`
                     };
 

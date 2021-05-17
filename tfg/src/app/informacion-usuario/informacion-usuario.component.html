@@ -17,7 +17,6 @@
             <div class="card" style="width: 18rem;" *ngFor="let usuario of usuarios">
                     <div class="card-body">
                         <h5 class="card-title">{{ usuario.nombre }} {{ usuario.apellidos }}</h5>
-                        <h6 class="card-subtitle">{{ usuario.pass }}</h6><br>
                         <p><input [type]="this.inputType" [value]="usuario.pass">
                             <a (click)="cambiarContrasena()" class="card-link">Cambiar</a>
                             <br>

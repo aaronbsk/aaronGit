@@ -1,7 +1,9 @@
 // Imports
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
+import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
+import { Usuario } from '../models/usuario';
 import { MensajesService } from '../services/mensajes.service';
 
 // Inyección del tipo Component para la clase HeaderComponent
@@ -13,33 +15,55 @@ import { MensajesService } from '../services/mensajes.service';
 
 // Export de la clase Header Component
 export class HeaderComponent implements OnInit {
+    // Declaración de variables
+    esVisible: boolean = true;
+    usuarios: Usuario[] = new Array<Usuario>();
+    nombre: string = "Usuario";
 
     // Constructor de la clase HeaderComponent
     constructor(
         private router: Router,
         private afAuth: AngularFireAuth,
-        private msj: MensajesService
+        private msj: MensajesService,
+        private db: AngularFirestore
     ){ }
 
     // Método inicializador de la clase HeaderComponent
     ngOnInit(): void {
+        // Comprobación si existe usuario logueado
+        this.afAuth.onAuthStateChanged((user)=> {
+            if (user != null){
+                // Muestro el boton Logout solo en el caso que exista usuario loguead
+                this.esVisible = false;
+
+                // Recibo información usuario que coincide con el email del usuario registrado
+                this.db.collection('usuarios', ref => ref.where('email', '==', user.email)).get().subscribe((data)=> {
+                    data.docs.forEach((item)=> {
+                        let usuario: any = item.data()
+
+                        this.usuarios.push(usuario);
+
+                        this.usuarios.forEach((values)=> {
+                            this.nombre = values.nombre;
+                        })
+                    })
+                })
+            // En caso de no haber usuario logueado
+            }else {
+                this.esVisible = true;
+                this.nombre = "Usuario";
+            }
+        });
     }
 
     // Método para realizar el Logout del usuario
     logout(){
-        // Comprobación si existe usuario logueado
-        this.afAuth.currentUser.then((user)=> {
-            if (user != null){
-                // Realizo el logout del usuario logueado
-                this.afAuth.signOut();
-                localStorage.removeItem('usuario');
-                localStorage.removeItem('nombreUsuarioActivo');
-                this.router.navigateByUrl('');
-            // En caso de no haber usuario logueado
-            }else {
-                this.msj.mensajeLogoutSinUsuario();
-            }
-        });
+        // Realizo el logout del usuario logueado
+        this.afAuth.signOut();
+        localStorage.removeItem('usuario');
+        localStorage.removeItem('nombreUsuarioActivo');
+        this.router.navigateByUrl('');
+        this.esVisible = true;
     }
 
     // Método para redirigir al usuario al perfil del usuario si el usuario está logueado

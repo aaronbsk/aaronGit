@@ -31,7 +31,7 @@ export class InformacionUsuarioComponent implements OnInit {
     // Método inicializador de la clase InformacionUsuarioComponent
     ngOnInit(): void {
         // Comprobación si existe usuario logueado
-        this.afAuth.currentUser.then((user)=> {
+        this.afAuth.onAuthStateChanged((user)=> {
             if (user != null){
                 // Recibo información usuario que coincide con el email del usuario logueado
                 this.db.collection('usuarios', ref => ref.where('email', '==', user.email)).get().subscribe((data)=> {
@@ -51,7 +51,7 @@ export class InformacionUsuarioComponent implements OnInit {
 
     // Método para volver a la localización previa
     volverAtras(){
-        this.router.navigateByUrl('/paginaPrincipal');
+        this.router.navigateByUrl('');
     }
 
     // Método para redirigir al usuario al Historial de Reservas

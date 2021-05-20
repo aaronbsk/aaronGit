@@ -44,6 +44,6 @@ export class RestaurantesComponent implements OnInit {
 
     // Método para redirigir al usuario al Home
     irAHome(){
-        this.router.navigateByUrl('/paginaPrincipal');
+        this.router.navigateByUrl('');
     }
 }

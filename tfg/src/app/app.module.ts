@@ -17,7 +17,6 @@ import { AngularFirestore } from '@angular/fire/firestore';
 // Módulos (Componentes)
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { InicioComponent } from './inicio/inicio.component';
 import { FormRegistroComponent } from './form-registro/form-registro.component';
 import { FormLoginComponent } from './form-login/form-login.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
@@ -32,7 +31,6 @@ import { HistorialReservasComponent } from './historial-reservas/historial-reser
   declarations: [
     AppComponent,
     HeaderComponent,
-    InicioComponent,
     FormRegistroComponent,
     FormLoginComponent,
     PaginaPrincipalComponent,

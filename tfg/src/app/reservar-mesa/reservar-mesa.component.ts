@@ -40,7 +40,7 @@ export class ReservarMesaComponent implements OnInit {
     // Método inicializador de la clase ReservarMesaComponent
     ngOnInit(): void {
         // Comprobación si existe usuario logueado
-        this.afAuth.currentUser.then((user)=> {
+        this.afAuth.onAuthStateChanged((user)=> {
            if (user != null){
                 this.restaurantes.length = 0;
                 // Recibo los restaurantes de la Base de Datos
@@ -71,14 +71,14 @@ export class ReservarMesaComponent implements OnInit {
             // En caso de no haber usuario logueado
             }else {
                 this.msj.mensajeReservarMesaLogoutError();
-                this.router.navigateByUrl('/paginaPrincipal');
+                this.router.navigateByUrl('');
             }
         });
     }
 
     // Método para volver a la localización previa
     volverAtras(){
-        this.router.navigateByUrl('/paginaPrincipal');
+        this.router.navigateByUrl('');
     }
 
     // Método para realizar la reserva del usuario
@@ -123,7 +123,7 @@ export class ReservarMesaComponent implements OnInit {
                         this.mensaje = 'Se ha enviado un correo al restaurante para informar de su reserva y de la indicaciones de esta. En caso de indicaciones por parte del restaurante, se pondran en contacto con usted vía correo o teléfono';
                         this.msj.mensajeReservaCorrecto(this.mensaje);
                         this.spinner.hide();
-                        this.router.navigateByUrl('/paginaPrincipal');
+                        this.router.navigateByUrl('');
 
                     // En caso de fallo al hacer el insert en la BD del mail de la reserva
                     }).catch((error)=> {

@@ -31,7 +31,7 @@ export class HistorialReservasComponent implements OnInit {
     // Método inicializador de la clase HistorialReservasComponent
     ngOnInit(): void {
         // Comprobación si existe usuario logueado
-        this.afAuth.currentUser.then((user)=> {
+        this.afAuth.onAuthStateChanged((user)=> {
             if (user != null){
                 // Recibo información reservas que coincida con el email del usuario logueado
                 this.db.collection('reservas', ref => ref.where('email', '==', user.email)).get().subscribe((data)=> {
@@ -44,7 +44,7 @@ export class HistorialReservasComponent implements OnInit {
             // En caso de no haber usuario logueado
             }else {
                 this.msj.mensajeAccederHistorialError();
-                this.router.navigateByUrl('/paginaPrincipal');
+                this.router.navigateByUrl('');
             }
         })
     }

@@ -43,7 +43,7 @@ export class FormLoginComponent implements OnInit {
 
         // Si existe usuario logueado redirijo al Home
         if(localStorage.getItem('usuario')){
-            this.router.navigateByUrl('/paginaPrincipal');
+            this.router.navigateByUrl('');
         }
     }
 
@@ -56,7 +56,7 @@ export class FormLoginComponent implements OnInit {
             // Hago Login del usuario y redirijo al Home
             this.afAuth.signInWithEmailAndPassword(this.formularioLogin.value.email, this.formularioLogin.value.pass)
             .then(()=> {
-                this.router.navigateByUrl('/paginaPrincipal');
+                this.router.navigateByUrl('');
                 this.spinner.hide();
                 this.formularioLogin.reset();
             // En caso de haber un error al Login del usuario en Firebase

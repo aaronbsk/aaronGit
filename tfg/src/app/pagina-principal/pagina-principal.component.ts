@@ -1,7 +1,6 @@
 // Imports
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { AngularFirestore } from '@angular/fire/firestore';
 import { Router } from '@angular/router';
 import { Usuario } from '../models/usuario';
 import { MensajesService } from '../services/mensajes.service';
@@ -19,11 +18,11 @@ export class PaginaPrincipalComponent implements OnInit {
     nombre: string;
     usuarios: Usuario[] = new Array<Usuario>();
     esVisible: boolean = false;
+    seRefresca: Location;
 
     // Constructor de la clase PaginaPrincipalComponent
     constructor(
         private router: Router,
-        private db: AngularFirestore,
         private afAuth: AngularFireAuth,
         private msj: MensajesService
     ) { }
@@ -32,24 +31,10 @@ export class PaginaPrincipalComponent implements OnInit {
     ngOnInit(): void {
         localStorage.removeItem('usuario');
         // Comprobación si existe usuario logueado
-        this.afAuth.currentUser.then((user)=> {
+        this.afAuth.onAuthStateChanged((user)=> {
             if(user != null){
                 this.esVisible = true;
                 localStorage.setItem('usuario', user.uid);
-                if (localStorage.getItem('usuario')){
-                    // Recibo información usuario que coincide con el email del usuario registrado
-                    this.db.collection('usuarios', ref => ref.where('email', '==', user.email)).get().subscribe((data)=> {
-                        data.docs.forEach((item)=> {
-                            let usuario: any = item.data()
-    
-                            this.usuarios.push(usuario);
-    
-                            this.usuarios.forEach((values)=> {
-                                this.nombre = values.nombre;
-                            })
-                        })
-                    })
-                }
             // En caso de no haber usuario logueado
             }else{
                 this.esVisible = false;

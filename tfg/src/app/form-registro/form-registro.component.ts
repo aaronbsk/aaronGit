@@ -51,7 +51,7 @@ export class FormRegistroComponent implements OnInit {
 
         // Si existe usuario logueado redirijo al Home
         if(localStorage.getItem('usuario')){
-            this.router.navigateByUrl('/paginaPrincipal');
+            this.router.navigateByUrl('');
         }
     }
 

@@ -1,4 +1,5 @@
 // Imports
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -20,17 +21,20 @@ export class HeaderComponent implements OnInit {
     usuarios: Usuario[] = new Array<Usuario>();
     nombre: string = "Usuario";
     botonText: string = "Logout";
+    url: string = "";
 
     // Constructor de la clase HeaderComponent
     constructor(
         private router: Router,
         private afAuth: AngularFireAuth,
         private msj: MensajesService,
-        private db: AngularFirestore
+        private db: AngularFirestore,
+        private _location: Location
     ){ }
 
     // Método inicializador de la clase HeaderComponent
     ngOnInit(): void {
+        this.url = this._location.path();
         // Comprobación si existe usuario logueado
         this.afAuth.onAuthStateChanged((user)=> {
             if (user != null){
@@ -51,6 +55,8 @@ export class HeaderComponent implements OnInit {
                     })
                 })
             // En caso de no haber usuario logueado
+            }else if (this.url === ""){
+                this.esVisible = true;
             }else {
                 this.esVisible = true;
                 this.nombre = "Usuario";

@@ -1,4 +1,5 @@
 // Imports
+import { Location } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
@@ -25,7 +26,8 @@ export class InformacionUsuarioComponent implements OnInit {
         private router: Router,
         private db: AngularFirestore,
         private afAuth: AngularFireAuth,
-        private msj: MensajesService
+        private msj: MensajesService,
+        private _location: Location
     ) { }
 
     // Método inicializador de la clase InformacionUsuarioComponent
@@ -51,7 +53,7 @@ export class InformacionUsuarioComponent implements OnInit {
 
     // Método para volver a la localización previa
     volverAtras(){
-        this.router.navigateByUrl('');
+        this._location.back();
     }
 
     // Método para redirigir al usuario al Historial de Reservas

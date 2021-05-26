@@ -4,32 +4,46 @@
 
 .container {
     max-width: 500px !important;
-    background: #333333;
+    background: #3D3D3D;
     color: white;
     border-radius: 20px;
     padding: 20px;
 }
 
+.inputUsuario {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.inputPass {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
 input {
     background-color: #333333;
     color: white;
-    border-radius: 20px;
+    border-radius: 0px !important;
     width: 300px;
     text-align: center;
+    border: none !important;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
 input:focus {
     background-color: #333333;
-    color: green;
+    color: white;
+    box-shadow: none;
+    border-bottom: 2px solid white !important;
 }
 
 #imgUsuario {
     width: 100px;
-}
-
-#imgUsuario2 {
-    width: 25px;
-    height: 30px;
 }
 
 button {
@@ -39,8 +53,5 @@ button {
 .alert {
     border-radius: 20px;
     width: 300px;
+    margin-left: 20px;
 }
-
-/* .form-group {
-    align-items: center;
-} */

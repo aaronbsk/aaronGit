@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+<nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark">
     <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2 ">
         <ul class="navbar-nav mr-auto">
             <li class="nav-item">
@@ -12,19 +12,20 @@
                 </a>
                 <div class="dropdown-menu" *dropdownMenu>
                   <a class="dropdown-item" (click)="accederPerfil()">Perfil</a>
-                  <div class="dropdown-divider"></div>
+                    <div class="dropdown-divider"></div>
                   <a class="dropdown-item" (click)="accederHistorial()">Historial Reservas</a>
                 </div>
             </li>
         </ul>
     </div>
     <div class="mx-auto order-0">
-        <a class="navbar-brand mx-auto" routerLink=""><img id="imgLogo" src="../../assets/imgLogo.png" alt=""></a>
+        <a class="navbar-brand mx-auto" routerLink=""><img id="imgLogo" src="../../assets/imgLogo.png" alt="">El<span style="color:green">Cuchillo</span></a>
     </div>
     <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <button [hidden]="this.esVisible" class="btn btn-danger" (click)="logout()">Logout&nbsp;<img id="imgExit" src="../../assets/iconoExit.png" alt=""></button>
+                <button [hidden]="this.esVisible" class="btn btn-danger" (click)="logout()">{{ this.botonText }}&nbsp;<img id="imgExit" src="../../assets/iconoExit.png" alt=""></button>
+                <button [hidden]="!this.esVisible" class="btn btn-success" (click)="accederLogin()">Iniciar Sesión&nbsp;<img id="imgEntrar" src="../../assets/iconoUsuario.png" alt=""></button>
             </li>
         </ul>
     </div>

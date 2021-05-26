@@ -1,9 +1,32 @@
-<body class="bg-dark text-white">
+<body>
     <div class="container mt-5 text-center">
-        <h2>Bienvenido/a a El Cuchillo!</h2><br>
-        <h4 [hidden]="!this.esVisible">Porfavor, díganos</h4><br><br>
-        <h3 [hidden]="!this.esVisible">¿Dónde le apetece comer hoy?</h3>
-        <h3 [hidden]="this.esVisible"><a routerLink="/formLogin">Iniciar Sesión</a> o <a routerLink="/formRegistro">Registrarse</a> para reservar mesa</h3><br><br><br>
-        <button class="btn btn-success" (click)="irAReservarMesa()">RESERVAR MESA<br><img src="../../assets/iconoMesa.png" alt=""></button>
+        <div class="row text-center">
+            <div class="col-6 mt-5"><br><br>
+                <h2 [hidden]="this.esVisible">Disfruta del arte del buen comer</h2><br>
+                <h4 [hidden]="!this.esVisible">Descubre y reserva el mejor restaurante</h4><br><br>
+                <button [hidden]="!this.esVisible" class="btn btn-success" (click)="irAReservarMesa()"><b>RESERVA YA</b>&nbsp;<img id="imgMesa" src="../../assets/iconoMesa.png" alt=""></button>
+            </div>
+            <div class="col-6">
+                <img id="imgPlatos" src="../../assets/imgPlatos2.png" alt="">
+            </div>
+        </div>
+        <div class="row text-center">
+            <nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark">
+                <div class="navbar-collapse order-1">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <p style="color:white">¿No encuentras lo que buscas? Envíanos un mensaje de correo electrónico.&nbsp;<a style="color:green" href="" alt="">contacto@elcuchillo.es</a></p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar-collapse order-3">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item">
+                            <p style="color:white">©TODOS LOS DERECHOS RESERVADOS</p>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </div>
 </body>

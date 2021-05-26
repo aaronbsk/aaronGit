@@ -19,6 +19,7 @@ export class HeaderComponent implements OnInit {
     esVisible: boolean = true;
     usuarios: Usuario[] = new Array<Usuario>();
     nombre: string = "Usuario";
+    botonText: string = "Logout";
 
     // Constructor de la clase HeaderComponent
     constructor(
@@ -35,6 +36,7 @@ export class HeaderComponent implements OnInit {
             if (user != null){
                 // Muestro el boton Logout solo en el caso que exista usuario loguead
                 this.esVisible = false;
+                this.botonText = "Logout";
 
                 // Recibo información usuario que coincide con el email del usuario registrado
                 this.db.collection('usuarios', ref => ref.where('email', '==', user.email)).get().subscribe((data)=> {
@@ -64,6 +66,13 @@ export class HeaderComponent implements OnInit {
         localStorage.removeItem('nombreUsuarioActivo');
         this.router.navigateByUrl('');
         this.esVisible = true;
+    }
+
+    // Método para acceder al Login
+    accederLogin(){
+        this.router.navigateByUrl('/formLogin');
+        this.esVisible = false;
+        this.botonText = "Atras";
     }
 
     // Método para redirigir al usuario al perfil del usuario si el usuario está logueado

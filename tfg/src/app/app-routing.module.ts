@@ -15,22 +15,22 @@ const routes: Routes = [
         path: '', component: PaginaPrincipalComponent
     },
     {
-        path: 'formLogin', component: FormLoginComponent
+        path: 'login', component: FormLoginComponent
     },
     {
-        path: 'formRegistro', component: FormRegistroComponent
+        path: 'registro', component: FormRegistroComponent
     },
     {
-        path: 'infoUsuario', component: InformacionUsuarioComponent
+        path: 'perfil', component: InformacionUsuarioComponent
     },
     {
         path: 'restaurantes', component: RestaurantesComponent
     },
     {
-        path: 'reservarMesa', component: ReservarMesaComponent
+        path: 'reserva', component: ReservarMesaComponent
     },
     {
-        path: 'historialReservas', component: HistorialReservasComponent
+        path: 'historial', component: HistorialReservasComponent
     }
 ];
 

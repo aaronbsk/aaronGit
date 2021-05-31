@@ -5,6 +5,11 @@
                 &#171;&nbsp;Volver
             </button>
         </div>
+        <div class="col-sm offset-sm-8">
+            <button class="btn btn-success" (click)="irAPerfil()">
+                Ir a mi Perfil&nbsp;&#187;
+            </button><br><br>
+        </div>
     </div><br>
     <div class="row">
         <div class="col-sm ml-4">
@@ -13,24 +18,26 @@
     </div>
     <div class="row">
         <div class="col-sm ml-4">
-            <table class="table table-striped table-dark">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre Reserva</th>
-                        <th scope="col">Nombre Restaurante</th>
-                        <th scope="col">Número Personas</th>
-                        <th scope="col">Fecha</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr *ngFor="let reserva of reservas">
-                        <th scope="row">{{ reserva.nombre }}</th>
-                        <td>{{ reserva.nombreRestaurante }}</td>
-                        <td>{{ reserva.numPersonas }}</td>
-                        <td>{{ reserva.fecha }}</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="table-responsive-sm">
+                <table class="table table-striped table-dark">
+                    <thead>
+                        <tr id="cabeceras">
+                            <th scope="col">Nombre Reserva</th>
+                            <th scope="col">Nombre Restaurante</th>
+                            <th scope="col">Número Personas</th>
+                            <th scope="col">Fecha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let reserva of reservas">
+                            <th scope="row">{{ reserva.nombre }}</th>
+                            <td>{{ reserva.nombreRestaurante }}</td>
+                            <td>{{ reserva.numPersonas }}</td>
+                            <td>{{ reserva.fecha }}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
 </div>

@@ -6,9 +6,6 @@ img {
     height: 254px;
 }
 
-.card-text {
-    height: 70px;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
+a {
+    color: #28a745;
 }

@@ -1,6 +1,9 @@
 .container-fluid {
-    max-width: 500px !important;
-    background: #333333;
+    padding-top: 100px;
+}
+
+.container {
+    background: #3D3D3D;
     color: white;
     border-radius: 20px;
     padding: 20px;
@@ -8,14 +11,35 @@
 
 input, select {
     background-color: #333333;
-    color: white;
+    border-radius: 0px !important;
+    border: none !important;
+    text-align: center;
+    width: 300px;
+    margin: auto;
 }
 
 input:focus, select:focus {
     background-color: #333333;
     color: white;
+    box-shadow: none;
+    border-bottom: 2px solid #28a745 !important;
 }
 
 #inputTime {
-    width: 250px;
+    width: 300px;
+}
+
+button {
+    border-radius: 20px;
+    width: 300px;
+}
+
+.alert {
+    border-radius: 20px;
+    width: 300px;
+    margin: auto;
+}
+
+#imgUsuario {
+    width: 100px;
 }

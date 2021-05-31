@@ -58,7 +58,7 @@ export class InformacionUsuarioComponent implements OnInit {
 
     // Método para redirigir al usuario al Historial de Reservas
     irAHistorial(){
-        this.router.navigateByUrl('/historialReservas');
+        this.router.navigateByUrl('/historial');
     }
 
     // Método para cambiar la visibilidad de la contraseña. Por defecto en oculto

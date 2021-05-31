@@ -54,4 +54,9 @@ export class HistorialReservasComponent implements OnInit {
         this._location.back();
     }
 
+    // Método para redirigir al usuario al Perfil del usuario
+    irAPerfil(){
+        this.router.navigateByUrl('/perfil');
+    }
+
 }

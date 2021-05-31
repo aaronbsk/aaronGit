@@ -3,7 +3,7 @@
 }
 
 .container {
-    background: #333333;
+    background: #3D3D3D;
     color: white;
     border-radius: 20px;
     padding: 20px;
@@ -12,9 +12,31 @@
 input {
     background-color: #333333;
     color: white;
+    border-radius: 0px !important;
+    border: none !important;
+    text-align: center;
+    width: 300px;
+    margin: auto;
 }
 
 input:focus {
+    border-bottom: 2px solid #28a745 !important;
     background-color: #333333;
     color: white;
+    box-shadow: none;
+}
+
+button {
+    border-radius: 20px;
+    width: 200px;
+}
+
+#imgUsuario {
+    width: 100px;
+}
+
+.alert {
+    border-radius: 20px;
+    width: 300px;
+    margin: auto;
 }

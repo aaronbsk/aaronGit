@@ -76,7 +76,7 @@ export class HeaderComponent implements OnInit {
 
     // Método para acceder al Login
     accederLogin(){
-        this.router.navigateByUrl('/formLogin');
+        this.router.navigateByUrl('/login');
         this.esVisible = false;
         this.botonText = "Atras";
     }
@@ -87,7 +87,7 @@ export class HeaderComponent implements OnInit {
         this.afAuth.currentUser.then((user)=> {
             // Redirijo al usuario
             if (user != null){
-                this.router.navigateByUrl('/infoUsuario');
+                this.router.navigateByUrl('/perfil');
             // En caso de no haber usuario logueado
             }else{
                 this.msj.mensajeAccederPerfilError();
@@ -101,7 +101,7 @@ export class HeaderComponent implements OnInit {
         this.afAuth.currentUser.then((user)=> {
             // Redirijo al usuario
             if (user != null){
-                this.router.navigateByUrl('/historialReservas');
+                this.router.navigateByUrl('/historial');
             // En caso de no haber usuario logueado
             }else{
                 this.msj.mensajeAccederHistorialError();

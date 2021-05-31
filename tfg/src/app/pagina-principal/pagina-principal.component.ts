@@ -47,7 +47,7 @@ export class PaginaPrincipalComponent implements OnInit {
         // Comprobación si existe usuario logueado
         this.afAuth.currentUser.then((user)=> {
             if (user != null){
-                this.router.navigateByUrl('/reservarMesa');
+                this.router.navigateByUrl('/reserva');
             // En caso de no haber usuario logueado
             }else {
                 this.msj.mensajeReservarMesaLogoutError();

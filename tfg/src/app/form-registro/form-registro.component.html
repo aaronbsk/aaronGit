@@ -1,10 +1,11 @@
 <div class="container-fluid mt-3">
     <h3 class="text-center">Bienvenido/a,</h3>
-    <h5 class="text-center">introduzca sus datos para registrarse</h5>
-    <div class="container">
+    <h5 class="text-center">introduzca sus datos para registrarse</h5><br><br>
+    <div class="container text-center">
         <form action="" [formGroup]="formularioRegistro">
+            <img id="imgUsuario" src="../../assets/iconoUsuario2.png" alt=""><br><br>
             <div class="row">
-                <div class="col-sm-6">
+                <div class="col-sm-6 text-center">
                     <div class="form-group text-center">
                         <label class="control-label" for="">Nombre</label>
                         <input type="text" class="form-control" formControlName="nombre" placeholder="Introduzca su nombre"><br>
@@ -30,7 +31,7 @@
                 <div class="col-sm-6 text-center">
                     <div class="form-group text-center">
                         <label class="control-label" for="">Email</label>
-                        <input type="email" class="form-control" formControlName="email" placeholder="Introduzca su email"><br>
+                        <input type="email" class="form-control" formControlName="email" placeholder="ejemplo@ejemplo.com"><br>
                         <div *ngIf="formularioRegistro.controls['email'].invalid && formularioRegistro.controls['email'].dirty" class="alert alert-danger" role="alert">
                             <span *ngIf="formularioRegistro.controls['email'].errors.required">Campo obligatorio</span>
                             <span *ngIf="formularioRegistro.controls['email'].errors.email">Correo no válido</span>
@@ -38,24 +39,24 @@
                     </div>
                     <div class="form-group text-center">
                         <label class="control-label" for="">Teléfono</label>
-                        <input type="tel" class="form-control" formControlName="tlf" placeholder="Introduzca su teléfono"><br>
+                        <input type="tel" class="form-control" formControlName="tlf" placeholder="999888777 / 666555444"><br>
                         <div *ngIf="formularioRegistro.controls['tlf'].invalid && formularioRegistro.controls['tlf'].dirty" class="alert alert-danger" role="alert">
                             <span *ngIf="formularioRegistro.controls['tlf'].errors.required">Campo obligatorio</span>
                         </div>
                     </div>
                     <div class="form-group text-center">
                         <label class="control-label" for="">DNI</label>
-                        <input type="text" (keyup.enter)="register()" class="form-control" formControlName="dni" placeholder="Introduzca su DNI"><br>
+                        <input type="text" (keyup.enter)="register()" class="form-control" formControlName="dni" placeholder="XXXXXXXXA" pattern="[0-9]{8}[A-Za-z]{1}"><br>
                         <div *ngIf="formularioRegistro.controls['dni'].invalid && formularioRegistro.controls['dni'].dirty" class="alert alert-danger" role="alert">
                             <span *ngIf="formularioRegistro.controls['dni'].errors.required">Campo obligatorio</span>
                         </div>
                     </div>
                 </div>
             </div>
+            <div class="text-center">
+                <button [disabled]="!formularioRegistro.valid" type="submit" class="btn btn-success" (click)="register()">Registrarse</button>
+            </div>
         </form>
-        <div class="text-center">
-            <button [disabled]="!formularioRegistro.valid" type="submit" class="btn btn-success" (click)="register()">Registrar</button>
-        </div>
     </div>
 </div>
 

@@ -24,6 +24,7 @@ import { ReservarMesaComponent } from './reservar-mesa/reservar-mesa.component';
 import { InformacionUsuarioComponent } from './informacion-usuario/informacion-usuario.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 import { HistorialReservasComponent } from './historial-reservas/historial-reservas.component';
+import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
 
 
 // Declaración de los modulos
@@ -37,7 +38,8 @@ import { HistorialReservasComponent } from './historial-reservas/historial-reser
     ReservarMesaComponent,
     InformacionUsuarioComponent,
     RestaurantesComponent,
-    HistorialReservasComponent
+    HistorialReservasComponent,
+    RecuperarContrasenaComponent
   ],
   // Declaración de los imports
   imports: [

@@ -6,6 +6,7 @@ import { FormRegistroComponent } from './form-registro/form-registro.component';
 import { HistorialReservasComponent } from './historial-reservas/historial-reservas.component';
 import { InformacionUsuarioComponent } from './informacion-usuario/informacion-usuario.component';
 import { PaginaPrincipalComponent } from './pagina-principal/pagina-principal.component';
+import { RecuperarContrasenaComponent } from './recuperar-contrasena/recuperar-contrasena.component';
 import { ReservarMesaComponent } from './reservar-mesa/reservar-mesa.component';
 import { RestaurantesComponent } from './restaurantes/restaurantes.component';
 
@@ -31,6 +32,9 @@ const routes: Routes = [
     },
     {
         path: 'historial', component: HistorialReservasComponent
+    },
+    {
+        path: 'recuperarContrasena', component: RecuperarContrasenaComponent
     }
 ];
 

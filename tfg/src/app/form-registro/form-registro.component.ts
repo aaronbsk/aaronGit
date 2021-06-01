@@ -36,23 +36,27 @@ export class FormRegistroComponent implements OnInit {
 
     // Método inicializador de la clase FormRegistroComponent
     ngOnInit(): void {
-        // Validacion del formulario de registro
-        this.formularioRegistro = this.fb.group({
-            nombre: ['', Validators.required],
-            apellidos: ['', Validators.required],
-            pass: ['', Validators.required],
-            email: ['', Validators.compose([
-                Validators.email,
-                Validators.required
-            ])],
-            tlf: ['', Validators.required],
-            dni: ['', Validators.required]
-        });
-
-        // Si existe usuario logueado redirijo al Home
-        if(localStorage.getItem('usuario')){
-            this.router.navigateByUrl('');
-        }
+        // Comprobación si existe usuario logueado
+        this.afAuth.onAuthStateChanged((user)=> {
+            if (user != null){
+                // Si existe usuario logueado redirijo al Home
+                this.router.navigateByUrl('');
+            // En caso de no haber usuario logueado
+            }else {
+                // Si no existe usuario logueado validación del formulario de Registro
+                this.formularioRegistro = this.fb.group({
+                    nombre: ['', Validators.required],
+                    apellidos: ['', Validators.required],
+                    pass: ['', Validators.required],
+                    email: ['', Validators.compose([
+                        Validators.email,
+                        Validators.required
+                    ])],
+                    tlf: ['', Validators.required],
+                    dni: ['', Validators.required]
+                });
+            }
+        })
     }
 
     // Método para realizar el registro del usuario

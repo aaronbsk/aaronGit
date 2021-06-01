@@ -22,6 +22,14 @@ export class MensajesService {
         })
     }
 
+    mensajeRecuperacionPassError(mensaje: string){
+        Swal.fire({
+            title: 'Error!',
+            text: mensaje,
+            icon: 'error'
+        })
+    }
+
     // Método para mostrar mensaje error al hacer Registro
     mensajeRegistroError(mensaje: string){
         Swal.fire({

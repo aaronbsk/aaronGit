@@ -36,6 +36,19 @@ export class FormRegistroComponent implements OnInit {
 
     // Método inicializador de la clase FormRegistroComponent
     ngOnInit(): void {
+        // Si no existe usuario logueado validación del formulario de Registro
+        this.formularioRegistro = this.fb.group({
+            nombre: ['', Validators.required],
+            apellidos: ['', Validators.required],
+            pass: ['', Validators.required],
+            email: ['', Validators.compose([
+                Validators.email,
+                Validators.required
+            ])],
+            tlf: ['', Validators.required],
+            dni: ['', Validators.required]
+        });
+        
         // Comprobación si existe usuario logueado
         this.afAuth.onAuthStateChanged((user)=> {
             if (user != null){
@@ -43,18 +56,7 @@ export class FormRegistroComponent implements OnInit {
                 this.router.navigateByUrl('');
             // En caso de no haber usuario logueado
             }else {
-                // Si no existe usuario logueado validación del formulario de Registro
-                this.formularioRegistro = this.fb.group({
-                    nombre: ['', Validators.required],
-                    apellidos: ['', Validators.required],
-                    pass: ['', Validators.required],
-                    email: ['', Validators.compose([
-                        Validators.email,
-                        Validators.required
-                    ])],
-                    tlf: ['', Validators.required],
-                    dni: ['', Validators.required]
-                });
+
             }
         })
     }

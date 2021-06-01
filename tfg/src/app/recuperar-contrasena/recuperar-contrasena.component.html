@@ -1,13 +1,14 @@
 <div class="container-fluid">
     <div class="container">
         <form action="" [formGroup]="formRecuperarPass">
-            <h5 class="text-center">Introduce tu nueva contraseña</h5><br><br>
+            <h5 class="text-center">Introduce tu email</h5><br><br>
             <div class="form-group text-center">
-                <input type="password" (keyup.enter)="recuperar()" class="form-control" formControlName="pass" placeholder="Nueva Contraseña"><br>
-                <div *ngIf="formRecuperarPass.controls['pass'].invalid && formRecuperarPass.controls['pass'].dirty" class="alert alert-danger" role="alert">
-                    <span *ngIf="formRecuperarPass.controls['pass'].errors.required">Campo obligatorio</span>
+                <input type="email" class="form-control" formControlName="email" placeholder="ejemplo@ejemplo.com"><br>
+                <div *ngIf="formRecuperarPass.controls['email'].invalid && formRecuperarPass.controls['email'].dirty" class="alert alert-danger" role="alert">
+                    <span *ngIf="formRecuperarPass.controls['email'].errors.required">Campo obligatorio</span>
+                    <span *ngIf="formRecuperarPass.controls['email'].errors.email">Correo no válido</span>
                 </div>
-            </div><br><br>
+            </div><br>
             <div class="text-center">
                 <button [disabled]="!formRecuperarPass.valid" type="submit" class="btn btn-success" (click)="recuperar()">Recuperar</button>
             </div>

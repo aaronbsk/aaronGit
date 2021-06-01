@@ -1,3 +1,4 @@
+// Imports
 import { Component, OnInit } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -5,16 +6,21 @@ import { Router } from '@angular/router';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { MensajesService } from '../services/mensajes.service';
 
+// Inyección del tipo Component para la clase RecuperarContrasenaComponent
 @Component({
     selector: 'app-recuperar-contrasena',
     templateUrl: './recuperar-contrasena.component.html',
     styleUrls: ['./recuperar-contrasena.component.css']
 })
+
+// Export de la clase RecuperarContrasenaComponent
 export class RecuperarContrasenaComponent implements OnInit {
+    // Declaración de variables
     formRecuperarPass: FormGroup;
     datosCorrectos: boolean = true;
     textoMensajes: string = "";
 
+    // Constructor de la clase RecuperarContrasenaComponent
     constructor(
         private fb: FormBuilder,
         private router: Router,
@@ -25,6 +31,14 @@ export class RecuperarContrasenaComponent implements OnInit {
 
     // Método inicializador de la clase RecuperarContrasenaComponent
     ngOnInit(): void {
+        // Si no existe usuario logueado validación del formulario de recuperación de contraseña
+        this.formRecuperarPass = this.fb.group({
+            email: ['', Validators.compose([
+                Validators.email,
+                Validators.required
+            ])]
+        });
+
         // Comprobación si existe usuario logueado
         this.afAuth.onAuthStateChanged((user)=> {
             if (user != null){
@@ -32,10 +46,7 @@ export class RecuperarContrasenaComponent implements OnInit {
                 this.router.navigateByUrl('');
             // En caso de no haber usuario logueado
             }else {
-                // Si no existe usuario logueado validación del formulario de recuperación de contraseña
-                this.formRecuperarPass = this.fb.group({
-                    pass: ['', Validators.required]
-                });
+
             }
         })
     }
@@ -46,7 +57,7 @@ export class RecuperarContrasenaComponent implements OnInit {
             this.datosCorrectos = true;
             this.spinner.show();
             // Actualizo contraseña del usuario y redirijo al Login
-            this.afAuth.signInWithEmailAndPassword(this.formRecuperarPass.value.email, this.formRecuperarPass.value.pass)
+            this.afAuth.sendPasswordResetEmail(this.formRecuperarPass.value.email)
             .then(()=> {
                 this.router.navigateByUrl('/login');
                 this.spinner.hide();

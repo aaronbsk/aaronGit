@@ -32,6 +32,15 @@ export class FormLoginComponent implements OnInit {
 
     // Método inicializador de la clase FormLoginComponent
     ngOnInit(): void {
+        // Si no existe usuario logueado validación del formulario de Login
+        this.formularioLogin = this.fb.group({
+            email: ['', Validators.compose([
+                Validators.email,
+                Validators.required
+            ])],
+            pass: ['', Validators.required]
+        });
+        
         // Comprobación si existe usuario logueado
         this.afAuth.onAuthStateChanged((user)=> {
             if (user != null){
@@ -39,14 +48,7 @@ export class FormLoginComponent implements OnInit {
                 this.router.navigateByUrl('');
             // En caso de no haber usuario logueado
             }else {
-                // Si no existe usuario logueado validación del formulario de Login
-                this.formularioLogin = this.fb.group({
-                    email: ['', Validators.compose([
-                        Validators.email,
-                        Validators.required
-                    ])],
-                    pass: ['', Validators.required]
-                });
+
             }
         })
     }
